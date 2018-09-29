@@ -1,0 +1,166 @@
+Obs: Prof.com Garganta em em shutdown! 
+REVISAO GERAL:
+Vamos fazer um aplicativo do inicio ao fim seguindo todos os passos de todos os itens da materia.
+
+EXERCICIO:
+"Faça um aplicativo que vai entrar com as informacoes de um Produto e seu preço. Ele deve:
+1 - Mostrar os produtos em uma lista 
+2 - Ter um botao que calcula a quantidade total de itens e total do preços e abre outra activity com o resultado
+3 - Inserir os produtos em uma tabela do Banco de Dados SQLite
+4 - Ler os dados de volta do banco e colocar na lista
+5 - Clicar em um item da lista e mostrar o seu preco. "
+------------------------------------
+PASSO 1 - Criar novo Projeto Aula7Revisao
+        - Activity Principal: ProdutoActivity
+   OBS: - Ajustar o Styles.xml:
+    <style name="AppTheme" parent="Base.Theme.AppCompat.Light.DarkActionBar">
+        - Rodar pra ver se o Android Studio esta ok
+PASSO 2 - Criar a activity secundaria:
+        - App/Java/pacote principal - New Empty Activity 
+PASSO 3 - Criar o objeto de dado - Produto
+        - App/Java/pacote principal - New Class Java 
+PASSO 4 - Criar o objeto gerenciador de Banco de dados:
+      - App/Java/pacote principal - New Class Java
+      - Colocar como herança de SQLiteOpenHelper
+      - Mandar implementar metodos abstratos(onCreate e onUpgrade
+      - Criar o Construtor apenas com o parametro "Context":
+          public GerenciadorDB(Context context) {
+      - Voltar depois para terminar o construtor
+PASSO 5 - Fazer o Layout da Activity principal
+        - Coloque todos os componentes
+        - Ajuste o Layout
+
+PASSO 6 - Fazer o Layout da Activity secundaria
+        - Coloque todos os componentes
+        - Ajuste o Layout       
+   
+PASSO 7 - COLOCAR os IDs nos componentes que serao usados nas activities
+        - USAR ID1xxxxx para os IDs na Activity 1 e ID2xxxx para os da Activity 2 e etc.
+
+PASSO 8 - Declarar todos os atributos das Activities para os componentes visuais que vamos usar (Aqueles que criamos IDs)
+
+PASSO 9 - Declarar os (3) atributos para tratamento da Lista na Activiy Principal: 
+      private ListView               listaProdutoListView;
+      private ArrayList<Produto>     listaProdutoArrayList;
+      private ArrayAdapter<Produto>  listaProdutoArrayAdapter;
+
+Passo 10 - Declarar o Atributo "Intent" para poder disparar activiy secundaria
+
+Passo 11 - Declarar o Atributo do tipo gerenciador de banco de dados (PASSO 4) na Activity Primaria
+
+Passo 12 - Criar metodos para Inicializar Componentes (Todas as activities)
+    public  void inicializarComponentes(){
+    }
+
+Passo 13 - Criar metodos para Inicializar Listeners (Apenas onde preciso)
+	public void inicializarListeners(){
+        }
+
+Passo 14 - Chamar Metodos de inicializacao (Passos 12 e 13) no "onCreate" das activities
+
+Passo 15 - Colocar o codigo de inicializacao de Componentes
+         - Colocar a inicializacao dos 3 elementos para formacao da lista mais o 4 item de conexao da listView com o adapter
+        listaProdutoListView      = (ListView) = findViewById(R.id.ID1_LISTA_ListView);
+        listaProdutoArrayList     = new ArrayList<Produto>();
+        listaProdutoArrayAdapter  = new ArrayAdapter<Produto>(this,android.R.layout.simple_list_item_1,
+                                                              listaProdutoArrayList);
+        listaProdutoListView.setAdapter(listaProdutoArrayAdapter);
+
+
+Passo 16 - Colocar o codigo de inicializacao de Listeners
+     - 4 OnClickListeners para os botoes +
+       1 OnItemClickListener para a Lista
+     - COLOQUE APENAS OS LISTENERS, faremos o codigo das acoes nos proximos passos
+
+Passo 17 - Para nos facilitar, faremos um metodo para pegar os dados digitados e ja criar pra nos um objeto produto
+     public Produto obterProdutoDigitado(){
+     public void colocarProduto(Produto p){
+
+Passo 18 - Instanciar os objetos "Gerenciador de Banco de Dados" e "Intent"  no OnCreate
+        gerenciadorDB       = new GerenciadorDB(this);
+        totalActivityIntent = new Intent(this,TotalActivity.class);
+
+Passo 19 - Fazer o codigo de inserir objeto digitado na Lista
+                Produto p = obterProdutoDigitado();
+                listaProdutoArrayList.add(p);
+                listaProdutoArrayAdapter.notifyDataSetChanged();
+
+Passo 20 - Fazer um metodo para abrir total em outra activity
+	- Varrer o ArrayList e somar os totais
+        - Criar objeto Bundle
+        - Colocar os totais no Bundle
+        - Colocar Bundle na Intent
+        - Disparar nova activity
+	---------------------------------------------
+	int    totalItens = 0;
+        double totalPreco = 0.0;
+        Iterator<Produto> iterator = listaProdutoArrayList.iterator();
+        while (iterator.hasNext()){
+            Produto p = (Produto) iterator.next();
+            totalItens++;
+            totalPreco += p.getPrecoProduto();
+        }
+        Bundle b = new Bundle();
+        b.putInt("NRITENS",totalItens);
+        b.putDouble("TOTAL",totalPreco);
+        totalActivityIntent.putExtras(b);
+        startActivity();
+
+
+Passo 21 - Chamar Metodo do passo 20 na action do listener do botao
+
+Passo 22 - Fazer codigo para receber os valores na activiy secundaria e mostrar na activity secundaria
+
+Passo 23 - Gerenciador de Banco de Dados - Criacao do banco
+    public GerenciadorDB(Context context) {
+        super(context, "COMPRASDB", null, 1);
+        ....
+Passo 24 - Gerenciador de Banco de Dados - Criacao da tabela
+    public void onCreate(SQLiteDatabase db) {
+        db.execSQL("CREATE TABLE PRODUTOTB(NOME TEXT, PRECO REAL)");
+    }
+
+Passo 25 - Fazer Metodo para Inserir Produto no Banco de Dados
+    public void insereBanco(Produto p){
+        SQLiteDatabase db = getWritableDatabase();
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("NOME",p.getNomeProduto());
+            contentValues.put("PRECO",p.getPrecoProduto());
+            db.insert("PRODUTOTB",null,contentValues);
+        db.close();
+    }
+Passo 26 - Colocar insercao no banco no listener do botao InserirBanco
+                Produto p = obterProdutoDigitado();
+                gerenciadorDB.insereBanco(p);
+Passo 27 - Fazer Metodo para Obter lista de Produtos no Banco de Dados
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = null;
+        String[] colunas = {"NOME","PRECO"};
+        cursor = db.query("PRODUTOTB",colunas,null,null,null,null,null);
+        /// Apontar o cursor para a 1 posicao do resultado //
+        /// Retorna TRUE se existe pelo menos um registro //
+        boolean existeDados = cursor.moveToFirst();
+        while (existeDados){
+            // Obtem os dados das colunas correspondentes (String colunas)
+            String nome  = cursor.getString(0);
+            double preco = cursor.getDouble(1);
+            Produto p = new Produto(nome,preco);
+            lista.add(p);
+            // Move o cursor para o proximo registro mas retorna
+            // falso se nao houver mais registros
+            existeDados = cursor.moveToNext();
+        };
+        db.close();
+
+Passo 28 - Colocar leitura de banco no listener do botao leBanco
+                listaProdutoArrayAdapter.clear();
+                listaProdutoArrayList.clear();
+                gerenciadorDB.leBanco(listaProdutoArrayList);
+
+Passo 29 - Fazer codigo para pegar dados do item clicado e por na activity
+                Produto p = (Produto) parent.getItemAtPosition(position);
+                colocarProduto(p);
+
+Passo 30 - Executar o Programa
+
+
