@@ -1,0 +1,25 @@
+1 - Concepção, Elaboração, Construção e Implantação
+2 - Cascata, RUP, Ágil, Espiral
+3 - a - Classes/Objetos
+    b - Estados
+    c - Componentes
+    d - Classes
+    e - Classes
+4 - Diagrama de Componentes, Classes, Sequencia, Modelo de Dados, Diagramas de estado, colaboracao, atividade
+5 - Encapsulamento, Herança e Polimorfismo
+6 - Conceito e Implantação (Planejamento pode ser aceito apesar de serem diferentes)
+7 - Herança, Associação e Agregação
+8 - Na agregação uma classe é "dona" ou responsável pelos seus agregados. Uma vez que objetos dessa classe sejam eliminados, seus filhos, conceitualmente, desaparecem. Na Associação temos apenas uma ligação entre as classes sem relação de posse ou responsabilidade
+
+9
+ a - F (Nesse caso, quando uma classe "Tem uma herança" quer dizer quantos FILHOS). Mas o inverso também é falso pois na OO a herança múltipla é parte do paradigma apesar de algumas linguagens nao possuirem.
+
+ b - F -  Aqui sim a pergunta é sobre herança múltipla
+ c - V
+ d - F - Participa mesmo que sem tarefas
+ e - V - Sim, eles podem ser aperfeiçoados
+ f - F - Pode se dividir justamente nos pontos de decisao
+ g - V
+ h - F
+ i - V
+ j - V

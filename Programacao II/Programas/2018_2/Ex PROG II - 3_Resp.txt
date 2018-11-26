@@ -1,0 +1,9 @@
+a - F - NAO PODE ACESSAR NADA
+b - F (Polimorfismo)
+c - V
+d - F - Precisamos do DefaultArrayModel
+e - V
+f - F 
+g - V
+h - F
+
