@@ -1,0 +1,63 @@
+
+Aula 10 - Gerenciamento de capacidade
+6             201602136221 Daniel lobo monteiro da silva   
+13           201603011668 ERIC BARBOSA                             
+21           201602498482 israel vitor pratti croce  
+30           201603334361 MATTHEUS TOSCANO DE OLIVEIRA   
+35           201603164456 RODRIGO TAVARES DO CARMO     
+
+Aula 11 - Implantação e manutenção de serviços de TI
+2             201601136587 ANDREZZA DE MELLO BATISTA   
+5             201703453794 CARLOS ANDRÉ SANTOS DA SILVA   
+10           201703197275 EDUARDO DOUGLAS DE MELO CAETANO                  
+22           201607178184 JACQUELINE MENDES RIBEIRO                  
+23           201602779431 JENNYFER MONTESSINO MOTA 
+26           201703189124 LETICIA TASSINARI TROTA  
+
+
+Aula 12 - Central de serviços e desempenho
+3             201602838801 BRUNO HENRIQUE NUNES QUINTELA                    
+4             201602312087 CAIO DOS SANTOS REIS    
+7             201602283257 Dennehy martins da silva                             
+12           201603015299 ENZO DE CASTRO COUTO                                 
+18           201601649142 HARLEY JOSÉ MARIA ARAUJO   
+20           201601729367 Hensley de andrade ferrari risso  
+
+
+Aula 13 - Gestão de segurança da informação
+15           201602773416 FELIPE DE OLIVEIRA DA COSTA SILVA    
+17           201608163512 gabriel rebelo fernandes                                        
+29           201501832141 LUIS RAFAEL REGIS DOS SANTOS  
+33           201607440792 RICKSON JORGE MARQUES DE OLIVEIRA    
+
+
+Aula 14 - Gerenciamento de fornecedores
+31           201602847967 PAULO RODRIGO SOUZA DA SILVA 
+
+Aula 15 - TI sombra e TI bimodal
+32           201603097414 PEDRO LOUREDO ALVES DA SILVA    
+19           201608045528 HENRIQUE DA SILVA BEZERRA 
+
+
+Aula 16 - TI Verde
+ 1             201603395059 ANDERSON VIEIRA DE CARVALHO    
+8             201306015511 DIOGO FERREIRA DE MEDEIROS  
+9             201607170205 EDUARDO CAVALCANTI DE PAULA     
+14           201603040757 ERIKA DE ALMEIDA PERCILIANO    
+25           201509169751 JULY QUEIROZ DOS SANTOS   
+
+
+
+
+                        
+11           201703139739 EDUARDO JOSE SANTOS DE JESUS                                    
+16           201702514773 FILIPE MARTIN GOMES DE LOIOLA                           
+24           201703187393 JONAS JOSINO MONTEIRO DA SILVA                                  
+27           201602497974 LUCAS JARDIM DE MEGRE RAMOS                          
+28           201608196356 LUIS ENRIQUE CAMARGO MENDOZA                                    
+34           201704088011 ROBSON TAVARES BARBOSA                                          
+36           201703187581 THIAGO ANTONINHO DA SILVA                 
+37           201601327633 Thiago Mantovano Spinosa                         
+38           201601693583 VINICIUS ROSSI PEREIRA                              
+39           201602654751 VÍTOR JOSÉ SOUZA DA SILVA
+ 
